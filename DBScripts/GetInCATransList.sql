@@ -1,0 +1,125 @@
+
+if exists(select name from sysobjects where name = 'GetInCATransList' and type = 'P')
+begin
+	drop procedure GetInCATransList
+end
+go
+
+CREATE PROCEDURE dbo.GetInCATransList
+
+  @iStartRow int,
+  @RecsPerPage int,
+  @transStatus varchar(20),
+  @transStartDate datetime,
+  @transEndDate datetime,
+  @keyword varchar(255) = null,
+  @TotalRecords int OUTPUT
+
+AS
+
+
+
+DECLARE @FirstRec int
+SELECT @FirstRec = @iStartRow /*@iStartRow*/ /*(@Page -1) * @RecsPerPage + 1*/
+
+DECLARE @RowCount int
+SELECT @RowCount = @RecsPerPage/*@RecsPerPage*/
+
+
+					   
+SELECT @TotalRecords = ( SELECT count(ONYX_ITRANID) FROM dbo.csuBIZStagingTrans
+					   where (ONYX_StagingStatus = @transStatus)
+					   AND (ONYX_dtTransactionDate >= @transStartDate) 
+					   AND (ONYX_dtTransactionDate <= @transEndDate) 
+					   AND (LNE_AMT1 <> 0)
+					   /*and DOC_REF1 LIKE '%'+isnull(@keyword,DOC_REF1)+'%'*/
+					   AND ONYX_iOwnerID = ISNULL(@keyword, ONYX_iOwnerID))
+
+DECLARE @PK int
+DECLARE @tmpTable TABLE (
+    PK int NOT NULL PRIMARY KEY
+)
+
+DECLARE PagingCursor CURSOR DYNAMIC READ_ONLY FOR
+SELECT ONYX_ITRANID FROM csuBIZStagingTrans
+where (ONYX_StagingStatus = @transStatus)
+					   AND (ONYX_dtTransactionDate >= @transStartDate) 
+					   AND (ONYX_dtTransactionDate <= @transEndDate) 
+					   AND (LNE_AMT1 <> 0
+					   /*and DOC_REF1 LIKE '%'+isnull(@keyword,DOC_REF1)+'%'*/
+					   AND ONYX_iOwnerID = ISNULL(@keyword, ONYX_iOwnerID)
+					   )  
+ORDER BY ONYX_ITRANID desc
+
+OPEN PagingCursor
+  FETCH RELATIVE @FirstRec FROM PagingCursor INTO @PK
+
+  WHILE (@RowCount <> 0) And (@@Fetch_Status = 0)
+    BEGIN
+      INSERT INTO @tmpTable (PK)
+      VALUES (@PK)
+
+      FETCH NEXT FROM PagingCursor INTO @PK
+      SET @RowCount = @RowCount - 1
+    END
+
+  CLOSE PagingCursor
+DEALLOCATE PagingCursor
+
+  SELECT			  ONYX_iTranID, VERS, IMP_NAME, BAT_NAME, DOC_ID, LNE_ID, BAT_BAT_GRP, BAT_DESCR, BAT_NARR1, BAT_NARR2, BAT_NARR3, BAT_FMT_NAME, BAT_DOC_TYPE, 
+                      BAT_CNTRA_DOC_TYPE, [STATUS], BAT_DATEI, BAT_CALENDAR_NAME, BAT_PGRP_NAME, BAT_REV_PGRP_NAME, BAT_PERIOD, SUSP_LDG_CODE, 
+                      SUSP_ACCNBRI, BAT_ENTY_CLR_CODE, BAT_BAL_LDG_CODE, BAT_BAL_ACCNBRI, BAL_DOC_DATEI1, BAL_DOC_REF1, BAT_BAL_VAT_RT_TYP, 
+                      BAT_BAL_VAT_RT_CDE, BAT_BAL_VAT_RT_AMT, BAT_PROC_TYPE, DOC_REF1, DOC_REF2, DOC_REF3, DOC_DATEI1, DOC_DATEI2, DOC_DATEI3, DOC_DATEI4, 
+                      DOC_PERIOD, DOC_REV_PRD, DOC_REV_PRD_IND, DOC_SOURCE, DOC_DOC_TYPE, DOC_CNTRA_DOC_TYPE, DOC_EXCH_RATE_TABLE_NAME, DOC_CCY_CODE, 
+                      DOC_EXCH_RATE_DATEI, DOC_EXCH_RATE_AMT, DOC_POST_IMP_IND, DOC_POST_ADDR_CODE, DOC_POST_NAME, DOC_POST_ADDR1, DOC_POST_ADDR2, 
+                      DOC_POST_ADDR3, DOC_POST_CITY, DOC_POST_STATE, DOC_POST_POSTCODE, DOC_POST_CTRY_CODE, DOC_POST_CTRY_NAME, DOC_POST_MESS1, 
+                      DOC_POST_MESS2, DOC_ENTY_CLR_CODE, DOC_ENTY_TYPE, DOC_PRINT_STATUS, LNE_LDG_CODE, LNE_ACCNBRI, LNE_NARR1, LNE_NARR2, LNE_NARR3, 
+                      LNE_VAT_TYPE, LNE_VAT_RATE_CODE, LNE_AMT1, LNE_VAT_RATE_AMT, LNE_CCY_AMT, LNE_VAT_AMT, LNE_VAT_CCY_AMT, LNE_VAT_EXC_AMT, 
+                      LNE_VAT_EXC_CCY_AMT, LNE_AMT2, LNE_AMT3, LNE_AMT4, LNE_UNITS1, LNE_UNITS2, LNE_UNITS3, LNE_UNITS4, LNE_REC_TYPE, LNE_DRW_BANK, 
+                      LNE_DRW_BRANCH, LNE_DRW_CHQ_NBR, LNE_DRW_NAME, LNE_AMT_IN_COINS, LNE_AMT_IN_COINS_CCY, LNE_USER_FLD1, LNE_USER_FLD2, 
+                      LNE_USER_FLD3, LNE_USER_FLD4, LNE_USER_FLD5, LNE_USER_FLD6, LNE_USER_FLD7, LNE_USER_FLD8, LNE_USER_FLD9, LNE_USER_FLD10, 
+                      LNE_DUE_DATEI1, LNEB_REC_TYPE, LNEB_REC_AMT, LNEB_REC_CCY_AMT, LNEB_CARD_NBR, LNEB_EXPIRY_MTH_YR, LNEB_CARD_NAME, LNEB_CHQ_NBR, 
+                      LNEB_DRW_BANK, LNEB_DRW_BRANCH, LNEB_DRW_NAME, LNEB_OTHER_REASON, LNEB_VCH_NBR, LNEP_DESCR, LNEP_DOC_DATEI, LNEP_DOC_REF, 
+                      LNEP_RATE_TYPE, LNEP_RATE_CODE, LNEP_RATE_AMT, LNEP_UNITS, LNEP_UNITS_NAME, LNEP_VAT_TYPE, LNEP_VAT_RATE_CODE, LNEP_VAT_RATE_AMT, 
+                      LNEP_AMT, LNEP_CCY_AMT, LNEP_VAT_AMT, LNEP_VAT_CCY_AMT, LNEP_VAT_INC_AMT, LNEP_VAT_INC_CCY_AMT, LNEP_VAT_EXC_AMT, 
+                      LNEP_VAT_EXC_CCY_AMT, ONYX_iTranGUID, ONYX_iProcessID, ONYX_iAuditID, ONYX_iAuditTypeID, ONYX_iPrimaryID, ONYX_iSecondaryID, 
+                      ONYX_iOwnerID, ONYX_dtTransactionDate, ONYX_StagingErrorCode, ONYX_StagingErrorDescription, ONYX_StagingUpdateDate, ONYX_StagingStatus
+  FROM csuBIZStagingTrans t
+  JOIN @tmpTable temp ON t.ONYX_iTranID = temp.PK
+  order by ONYX_dtTransactionDate desc
+
+GO
+
+GRANT EXECUTE ON dbo.GetInCATransList TO PUBLIC
+
+/*
+	declare @totalRecords int
+	exec GetInCATransList 1,10,'IMPORTED','2012-05-01','2012-09-30', @totalRecords = @totalRecords OUTPUT
+	print 'number of records: ' + convert(varchar(6),@totalRecords)
+
+*/
+
+
+/*
+SELECT     VERS, IMP_NAME, BAT_NAME, DOC_ID, LNE_ID, BAT_BAT_GRP, BAT_DESCR, BAT_NARR1, BAT_NARR2, BAT_NARR3, BAT_FMT_NAME, BAT_DOC_TYPE, 
+                      BAT_CNTRA_DOC_TYPE, [STATUS], BAT_DATEI, BAT_CALENDAR_NAME, BAT_PGRP_NAME, BAT_REV_PGRP_NAME, BAT_PERIOD, SUSP_LDG_CODE, 
+                      SUSP_ACCNBRI, BAT_ENTY_CLR_CODE, BAT_BAL_LDG_CODE, BAT_BAL_ACCNBRI, BAL_DOC_DATEI1, BAL_DOC_REF1, BAT_BAL_VAT_RT_TYP, 
+                      BAT_BAL_VAT_RT_CDE, BAT_BAL_VAT_RT_AMT, BAT_PROC_TYPE, DOC_REF1, DOC_REF2, DOC_REF3, DOC_DATEI1, DOC_DATEI2, DOC_DATEI3, DOC_DATEI4, 
+                      DOC_PERIOD, DOC_REV_PRD, DOC_REV_PRD_IND, DOC_SOURCE, DOC_DOC_TYPE, DOC_CNTRA_DOC_TYPE, DOC_EXCH_RATE_TABLE_NAME, DOC_CCY_CODE, 
+                      DOC_EXCH_RATE_DATEI, DOC_EXCH_RATE_AMT, DOC_POST_IMP_IND, DOC_POST_ADDR_CODE, DOC_POST_NAME, DOC_POST_ADDR1, DOC_POST_ADDR2, 
+                      DOC_POST_ADDR3, DOC_POST_CITY, DOC_POST_STATE, DOC_POST_POSTCODE, DOC_POST_CTRY_CODE, DOC_POST_CTRY_NAME, DOC_POST_MESS1, 
+                      DOC_POST_MESS2, DOC_ENTY_CLR_CODE, DOC_ENTY_TYPE, DOC_PRINT_STATUS, LNE_LDG_CODE, LNE_ACCNBRI, LNE_NARR1, LNE_NARR2, LNE_NARR3, 
+                      LNE_VAT_TYPE, LNE_VAT_RATE_CODE, LNE_AMT1, LNE_VAT_RATE_AMT, LNE_CCY_AMT, LNE_VAT_AMT, LNE_VAT_CCY_AMT, LNE_VAT_EXC_AMT, 
+                      LNE_VAT_EXC_CCY_AMT, LNE_AMT2, LNE_AMT3, LNE_AMT4, LNE_UNITS1, LNE_UNITS2, LNE_UNITS3, LNE_UNITS4, LNE_REC_TYPE, LNE_DRW_BANK, 
+                      LNE_DRW_BRANCH, LNE_DRW_CHQ_NBR, LNE_DRW_NAME, LNE_AMT_IN_COINS, LNE_AMT_IN_COINS_CCY, LNE_USER_FLD1, LNE_USER_FLD2, 
+                      LNE_USER_FLD3, LNE_USER_FLD4, LNE_USER_FLD5, LNE_USER_FLD6, LNE_USER_FLD7, LNE_USER_FLD8, LNE_USER_FLD9, LNE_USER_FLD10, 
+                      LNE_DUE_DATEI1, LNEB_REC_TYPE, LNEB_REC_AMT, LNEB_REC_CCY_AMT, LNEB_CARD_NBR, LNEB_EXPIRY_MTH_YR, LNEB_CARD_NAME, LNEB_CHQ_NBR, 
+                      LNEB_DRW_BANK, LNEB_DRW_BRANCH, LNEB_DRW_NAME, LNEB_OTHER_REASON, LNEB_VCH_NBR, LNEP_DESCR, LNEP_DOC_DATEI, LNEP_DOC_REF, 
+                      LNEP_RATE_TYPE, LNEP_RATE_CODE, LNEP_RATE_AMT, LNEP_UNITS, LNEP_UNITS_NAME, LNEP_VAT_TYPE, LNEP_VAT_RATE_CODE, LNEP_VAT_RATE_AMT, 
+                      LNEP_AMT, LNEP_CCY_AMT, LNEP_VAT_AMT, LNEP_VAT_CCY_AMT, LNEP_VAT_INC_AMT, LNEP_VAT_INC_CCY_AMT, LNEP_VAT_EXC_AMT, 
+                      LNEP_VAT_EXC_CCY_AMT, ONYX_iTranID, ONYX_iTranGUID, ONYX_iProcessID, ONYX_iAuditID, ONYX_iAuditTypeID, ONYX_iPrimaryID, ONYX_iSecondaryID, 
+                      ONYX_iOwnerID, ONYX_dtTransactionDate, ONYX_StagingErrorCode, ONYX_StagingErrorDescription, ONYX_StagingUpdateDate, ONYX_StagingStatus
+FROM         dbo.csuBIZStagingTrans 
+WHERE     (ONYX_StagingStatus = 'IMPORTED') AND (ONYX_dtTransactionDate >= '2012-06-01') AND (ONYX_dtTransactionDate <= '2012-08-30') AND (LNE_AMT1 <> 0)
+ORDER BY ONYX_dtTransactionDate DESC
+*/

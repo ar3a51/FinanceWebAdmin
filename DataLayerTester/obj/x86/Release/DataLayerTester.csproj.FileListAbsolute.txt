@@ -1,0 +1,9 @@
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\DataLayerTester.exe
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\DataLayerTester.pdb
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\FinanceDataLayer.dll
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\AppDomain.dll
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\FinanceDataLayer.pdb
+D:\Projects\FinanceWebAdmin\DataLayerTester\bin\Release\AppDomain.pdb
+D:\Projects\FinanceWebAdmin\DataLayerTester\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\FinanceWebAdmin\DataLayerTester\obj\x86\Release\DataLayerTester.exe
+D:\Projects\FinanceWebAdmin\DataLayerTester\obj\x86\Release\DataLayerTester.pdb

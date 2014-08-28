@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceAuditSyncModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="FinanceAuditSyncModelStoreContainer">
+    <EntitySet Name="csuAuditDebtorSync" EntityType="FinanceAuditSyncModel.Store.csuAuditDebtorSync" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="csuAuditTransSync" EntityType="FinanceAuditSyncModel.Store.csuAuditTransSync" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="csuAuditDebtorSync">
+    <Key>
+      <PropertyRef Name="iAuditId" />
+    </Key>
+    <Property Name="iAuditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vchUsername" Type="varchar" MaxLength="100" />
+    <Property Name="dtChangeDate" Type="date" />
+    <Property Name="vchAction" Type="varchar" MaxLength="100" />
+    <Property Name="MemberId" Type="int" />
+    <Property Name="vchType" Type="varchar" MaxLength="50" />
+    <Property Name="vchReason" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="csuAuditTransSync">
+    <Key>
+      <PropertyRef Name="iAuditId" />
+    </Key>
+    <Property Name="iAuditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="documentId" Type="varchar" MaxLength="100" />
+    <Property Name="vchAction" Type="varchar" MaxLength="100" />
+    <Property Name="vchSystem" Type="varchar" MaxLength="100" />
+    <Property Name="vchReason" Type="varchar" MaxLength="400" />
+    <Property Name="chupdateBy" Type="varchar" MaxLength="100" />
+    <Property Name="dtChangeDate" Type="datetime" />
+  </EntityType>
+</Schema>

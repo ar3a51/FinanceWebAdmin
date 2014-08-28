@@ -1,0 +1,8 @@
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\bin\Debug\FinanceDataLayer.dll.config
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\bin\Debug\FinanceDataLayer.dll
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\bin\Debug\FinanceDataLayer.pdb
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\bin\Debug\AppDomain.dll
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\bin\Debug\AppDomain.pdb
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\obj\Debug\FinanceDataLayer.dll
+D:\Projects\FinanceWebAdmin\FinanceDataLayer\obj\Debug\FinanceDataLayer.pdb

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="FinanceAuditSyncModelStoreContainer" CdmEntityContainer="FinanceAuditSyncEntities">
+    <EntitySetMapping Name="csuAuditDebtorSyncs">
+      <EntityTypeMapping TypeName="FinanceAuditSyncModel.csuAuditDebtorSync">
+        <MappingFragment StoreEntitySet="csuAuditDebtorSync">
+          <ScalarProperty Name="iAuditId" ColumnName="iAuditId" />
+          <ScalarProperty Name="vchUsername" ColumnName="vchUsername" />
+          <ScalarProperty Name="dtChangeDate" ColumnName="dtChangeDate" />
+          <ScalarProperty Name="vchAction" ColumnName="vchAction" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="vchType" ColumnName="vchType" />
+          <ScalarProperty Name="vchReason" ColumnName="vchReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="csuAuditTransSyncs">
+      <EntityTypeMapping TypeName="FinanceAuditSyncModel.csuAuditTransSync">
+        <MappingFragment StoreEntitySet="csuAuditTransSync">
+          <ScalarProperty Name="dtChangeDate" ColumnName="dtChangeDate" />
+          <ScalarProperty Name="chupdateBy" ColumnName="chupdateBy" />
+          <ScalarProperty Name="vchReason" ColumnName="vchReason" />
+          <ScalarProperty Name="vchSystem" ColumnName="vchSystem" />
+          <ScalarProperty Name="vchAction" ColumnName="vchAction" />
+          <ScalarProperty Name="documentId" ColumnName="documentId" />
+          <ScalarProperty Name="iAuditId" ColumnName="iAuditId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

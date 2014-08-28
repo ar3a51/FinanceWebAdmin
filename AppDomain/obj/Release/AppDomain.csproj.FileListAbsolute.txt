@@ -1,0 +1,5 @@
+D:\Projects\FinanceWebAdmin\AppDomain\bin\Release\AppDomain.dll
+D:\Projects\FinanceWebAdmin\AppDomain\bin\Release\AppDomain.pdb
+D:\Projects\FinanceWebAdmin\AppDomain\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\FinanceWebAdmin\AppDomain\obj\Release\AppDomain.dll
+D:\Projects\FinanceWebAdmin\AppDomain\obj\Release\AppDomain.pdb

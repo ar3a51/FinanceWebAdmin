@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TSTTopClassModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="TSTTopClassModelStoreContainer">
+          <EntitySet Name="esdTransactionHeader" EntityType="TSTTopClassModel.Store.esdTransactionHeader" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="esdTransactionHeader">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="int" Nullable="false" />
+          <Property Name="DocumentDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="254" />
+          <Property Name="StatusDescription" Type="ntext" />
+          <Property Name="CartID" Type="int" Nullable="false" />
+          <Property Name="MovementID" Type="int" Nullable="false" />
+          <Property Name="AccountID" Type="nvarchar" MaxLength="254" />
+          <Property Name="DocumentID" Type="nvarchar" MaxLength="254" />
+          <Property Name="DocumentType" Type="nvarchar" MaxLength="254" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="ApplyToID" Type="nvarchar" MaxLength="254" />
+          <Property Name="ApplyAmount" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="UnapplyID" Type="nvarchar" MaxLength="254" />
+          <Property Name="Created" Type="nchar" MaxLength="1" />
+          <Property Name="FormatName" Type="nvarchar" MaxLength="254" />
+          <Property Name="BillingIndicator" Type="nchar" MaxLength="1" />
+          <Property Name="PostalName" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalAddress1" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalAddress2" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalCity" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalPostCode" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalState" Type="nvarchar" MaxLength="254" />
+          <Property Name="PostalCountry" Type="nvarchar" MaxLength="254" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="254" />
+          <Property Name="DialectTransactionID" Type="nvarchar" MaxLength="254" />
+          <Property Name="DocumentText" Type="nvarchar" MaxLength="254" />
+          <Property Name="UpdateBy" Type="nvarchar" MaxLength="254" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TSTTopClassModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="TopClassEntities">
+          <EntitySet Name="esdTransactionHeaders" EntityType="TSTTopClassModel.esdTransactionHeader" />
+        </EntityContainer>
+        <EntityType Name="esdTransactionHeader" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Guid" />
+          </Key>
+          <Property Name="Guid" Type="Int32" Nullable="false" />
+          <Property Name="DocumentDate" Type="DateTime" />
+          <Property Name="UpdateDate" Type="DateTime" />
+          <Property Name="Status" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="StatusDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CartID" Type="Int32" Nullable="false" />
+          <Property Name="MovementID" Type="Int32" Nullable="false" />
+          <Property Name="AccountID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="DocumentID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="DocumentType" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="ApplyToID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="ApplyAmount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="UnapplyID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="Created" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+          <Property Name="FormatName" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="BillingIndicator" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+          <Property Name="PostalName" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalAddress1" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalAddress2" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCity" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalPostCode" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalState" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="PostalCountry" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="MerchantID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="DialectTransactionID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="DocumentText" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="UpdateBy" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="TSTTopClassModelStoreContainer" CdmEntityContainer="TopClassEntities">
+          <EntitySetMapping Name="esdTransactionHeaders"><EntityTypeMapping TypeName="TSTTopClassModel.esdTransactionHeader"><MappingFragment StoreEntitySet="esdTransactionHeader">
+            <ScalarProperty Name="Guid" ColumnName="Guid" />
+            <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+            <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+            <ScalarProperty Name="CartID" ColumnName="CartID" />
+            <ScalarProperty Name="MovementID" ColumnName="MovementID" />
+            <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+            <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+            <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+            <ScalarProperty Name="ApplyToID" ColumnName="ApplyToID" />
+            <ScalarProperty Name="ApplyAmount" ColumnName="ApplyAmount" />
+            <ScalarProperty Name="UnapplyID" ColumnName="UnapplyID" />
+            <ScalarProperty Name="Created" ColumnName="Created" />
+            <ScalarProperty Name="FormatName" ColumnName="FormatName" />
+            <ScalarProperty Name="BillingIndicator" ColumnName="BillingIndicator" />
+            <ScalarProperty Name="PostalName" ColumnName="PostalName" />
+            <ScalarProperty Name="PostalAddress1" ColumnName="PostalAddress1" />
+            <ScalarProperty Name="PostalAddress2" ColumnName="PostalAddress2" />
+            <ScalarProperty Name="PostalCity" ColumnName="PostalCity" />
+            <ScalarProperty Name="PostalPostCode" ColumnName="PostalPostCode" />
+            <ScalarProperty Name="PostalState" ColumnName="PostalState" />
+            <ScalarProperty Name="PostalCountry" ColumnName="PostalCountry" />
+            <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+            <ScalarProperty Name="DialectTransactionID" ColumnName="DialectTransactionID" />
+            <ScalarProperty Name="DocumentText" ColumnName="DocumentText" />
+            <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TopClassData">
+        <EntityTypeShape EntityType="TSTTopClassModel.esdTransactionHeader" Width="1.5" PointX="3.375" PointY="0.75" Height="5.5366422526041656" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceDataLayer", "FinanceDataLayer\FinanceDataLayer.csproj", "{16BF21F7-928B-4744-85F2-A81DCEAE3703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayerTester", "DataLayerTester\DataLayerTester.csproj", "{7B27FFFF-861C-4932-9217-A677AA07A14D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDomain", "AppDomain\AppDomain.csproj", "{B430585F-7E04-47C0-8484-0A695FCBCC4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceWeb", "FinanceWeb\FinanceWeb.csproj", "{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://apptfs.icaa.org.au:8080/tfs/icaacollection
+		SccProjectUniqueName0 = AppDomain\\AppDomain.csproj
+		SccProjectName0 = AppDomain
+		SccLocalPath0 = AppDomain
+		SccProjectUniqueName1 = DataLayerTester\\DataLayerTester.csproj
+		SccProjectName1 = DataLayerTester
+		SccLocalPath1 = DataLayerTester
+		SccProjectUniqueName2 = FinanceDataLayer\\FinanceDataLayer.csproj
+		SccProjectName2 = FinanceDataLayer
+		SccLocalPath2 = FinanceDataLayer
+		SccProjectUniqueName3 = FinanceWeb\\FinanceWeb.csproj
+		SccProjectName3 = FinanceWeb
+		SccLocalPath3 = FinanceWeb
+		SccLocalPath4 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{16BF21F7-928B-4744-85F2-A81DCEAE3703}.Release|x86.ActiveCfg = Release|Any CPU
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Debug|x86.ActiveCfg = Debug|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Debug|x86.Build.0 = Debug|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Release|Any CPU.ActiveCfg = Release|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Release|x86.ActiveCfg = Release|x86
+		{7B27FFFF-861C-4932-9217-A677AA07A14D}.Release|x86.Build.0 = Release|x86
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B430585F-7E04-47C0-8484-0A695FCBCC4C}.Release|x86.ActiveCfg = Release|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EEE92FC6-97D0-486C-B4D3-C7B86932FC00}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

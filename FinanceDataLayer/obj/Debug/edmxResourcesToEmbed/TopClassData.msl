@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="TSTTopClassModelStoreContainer" CdmEntityContainer="TopClassEntities">
+    <EntitySetMapping Name="esdTransactionHeaders">
+      <EntityTypeMapping TypeName="TSTTopClassModel.esdTransactionHeader">
+        <MappingFragment StoreEntitySet="esdTransactionHeader">
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="DocumentDate" ColumnName="DocumentDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="CartID" ColumnName="CartID" />
+          <ScalarProperty Name="MovementID" ColumnName="MovementID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ApplyToID" ColumnName="ApplyToID" />
+          <ScalarProperty Name="ApplyAmount" ColumnName="ApplyAmount" />
+          <ScalarProperty Name="UnapplyID" ColumnName="UnapplyID" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="FormatName" ColumnName="FormatName" />
+          <ScalarProperty Name="BillingIndicator" ColumnName="BillingIndicator" />
+          <ScalarProperty Name="PostalName" ColumnName="PostalName" />
+          <ScalarProperty Name="PostalAddress1" ColumnName="PostalAddress1" />
+          <ScalarProperty Name="PostalAddress2" ColumnName="PostalAddress2" />
+          <ScalarProperty Name="PostalCity" ColumnName="PostalCity" />
+          <ScalarProperty Name="PostalPostCode" ColumnName="PostalPostCode" />
+          <ScalarProperty Name="PostalState" ColumnName="PostalState" />
+          <ScalarProperty Name="PostalCountry" ColumnName="PostalCountry" />
+          <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+          <ScalarProperty Name="DialectTransactionID" ColumnName="DialectTransactionID" />
+          <ScalarProperty Name="DocumentText" ColumnName="DocumentText" />
+          <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

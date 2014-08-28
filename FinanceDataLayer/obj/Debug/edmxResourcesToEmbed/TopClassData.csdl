@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TSTTopClassModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="TopClassEntities">
+    <EntitySet Name="esdTransactionHeaders" EntityType="TSTTopClassModel.esdTransactionHeader" />
+  </EntityContainer>
+  <EntityType Name="esdTransactionHeader" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Int32" Nullable="false" />
+    <Property Name="DocumentDate" Type="DateTime" />
+    <Property Name="UpdateDate" Type="DateTime" />
+    <Property Name="Status" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="StatusDescription" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CartID" Type="Int32" Nullable="false" />
+    <Property Name="MovementID" Type="Int32" Nullable="false" />
+    <Property Name="AccountID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="DocumentID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="DocumentType" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="ApplyToID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="ApplyAmount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="UnapplyID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="Created" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+    <Property Name="FormatName" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="BillingIndicator" Type="String" MaxLength="1" Unicode="true" FixedLength="true" />
+    <Property Name="PostalName" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalAddress1" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalAddress2" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalCity" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalPostCode" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalState" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="PostalCountry" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="MerchantID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="DialectTransactionID" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="DocumentText" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+    <Property Name="UpdateBy" Type="String" MaxLength="254" Unicode="true" FixedLength="false" />
+  </EntityType>
+</Schema>

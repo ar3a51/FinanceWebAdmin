@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinanceAuditSyncModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="FinanceAuditSyncEntities">
+    <EntitySet Name="csuAuditDebtorSyncs" EntityType="FinanceAuditSyncModel.csuAuditDebtorSync" />
+    <EntitySet Name="csuAuditTransSyncs" EntityType="FinanceAuditSyncModel.csuAuditTransSync" />
+  </EntityContainer>
+  <EntityType Name="csuAuditDebtorSync">
+    <Key>
+      <PropertyRef Name="iAuditId" />
+    </Key>
+    <Property Name="iAuditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vchUsername" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="dtChangeDate" Type="DateTime" />
+    <Property Name="vchAction" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MemberId" Type="Int32" />
+    <Property Name="vchType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="vchReason" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="csuAuditTransSync">
+    <Key>
+      <PropertyRef Name="iAuditId" />
+    </Key>
+    <Property Type="Int32" Name="iAuditId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="documentId" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vchAction" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vchSystem" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vchReason" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="chupdateBy" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="dtChangeDate" />
+  </EntityType>
+</Schema>

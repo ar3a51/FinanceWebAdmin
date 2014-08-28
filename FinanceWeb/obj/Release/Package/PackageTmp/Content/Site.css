@@ -1,0 +1,66 @@
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+h1
+{
+    font-weight:bold;
+    font-family:Arial Black;
+    font-size:2.0em;
+    }
+/********************************************* Content****************************/
+body
+{
+    font-size:0.6em;
+}
+   .syncTabs
+   {
+       width:800px; 
+       /*height:800px; */
+       position:relative; 
+       margin-left:auto;
+       margin-right:auto;
+       overflow:hidden;
+   }
+   
+   .main
+   {
+       width:1024px;
+       position:relative;
+       margin-left:auto;
+       margin-right:auto;
+   }
+   
+   .Header
+   {
+       width:800px;
+       height:100px;
+       margin-left:auto;
+       margin-right:auto;
+       position:relative;
+   }

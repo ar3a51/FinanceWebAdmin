@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FinanceAuditSyncModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="FinanceAuditSyncModelStoreContainer">
+          <EntitySet Name="csuAuditDebtorSync" EntityType="FinanceAuditSyncModel.Store.csuAuditDebtorSync" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="csuAuditTransSync" EntityType="FinanceAuditSyncModel.Store.csuAuditTransSync" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="csuAuditDebtorSync">
+          <Key>
+            <PropertyRef Name="iAuditId" />
+          </Key>
+          <Property Name="iAuditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vchUsername" Type="varchar" MaxLength="100" />
+          <Property Name="dtChangeDate" Type="date" />
+          <Property Name="vchAction" Type="varchar" MaxLength="100" />
+          <Property Name="MemberId" Type="int" />
+          <Property Name="vchType" Type="varchar" MaxLength="50" />
+          <Property Name="vchReason" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="csuAuditTransSync">
+          <Key>
+            <PropertyRef Name="iAuditId" />
+          </Key>
+          <Property Name="iAuditId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="documentId" Type="varchar" MaxLength="100" />
+          <Property Name="vchAction" Type="varchar" MaxLength="100" />
+          <Property Name="vchSystem" Type="varchar" MaxLength="100" />
+          <Property Name="vchReason" Type="varchar" MaxLength="400" />
+          <Property Name="chupdateBy" Type="varchar" MaxLength="100" />
+          <Property Name="dtChangeDate" Type="datetime" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinanceAuditSyncModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="FinanceAuditSyncEntities">
+          <EntitySet Name="csuAuditDebtorSyncs" EntityType="FinanceAuditSyncModel.csuAuditDebtorSync" />
+          <EntitySet Name="csuAuditTransSyncs" EntityType="FinanceAuditSyncModel.csuAuditTransSync" />
+        </EntityContainer>
+        <EntityType Name="csuAuditDebtorSync">
+          <Key>
+            <PropertyRef Name="iAuditId" />
+          </Key>
+          <Property Name="iAuditId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vchUsername" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="dtChangeDate" Type="DateTime" />
+          <Property Name="vchAction" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="MemberId" Type="Int32" />
+          <Property Name="vchType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="vchReason" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="csuAuditTransSync">
+          <Key>
+            <PropertyRef Name="iAuditId" />
+          </Key>
+          <Property Type="Int32" Name="iAuditId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="documentId" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchAction" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchSystem" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="vchReason" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="chupdateBy" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dtChangeDate" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="FinanceAuditSyncModelStoreContainer" CdmEntityContainer="FinanceAuditSyncEntities">
+          <EntitySetMapping Name="csuAuditDebtorSyncs"><EntityTypeMapping TypeName="FinanceAuditSyncModel.csuAuditDebtorSync"><MappingFragment StoreEntitySet="csuAuditDebtorSync">
+            <ScalarProperty Name="iAuditId" ColumnName="iAuditId" />
+            <ScalarProperty Name="vchUsername" ColumnName="vchUsername" />
+            <ScalarProperty Name="dtChangeDate" ColumnName="dtChangeDate" />
+            <ScalarProperty Name="vchAction" ColumnName="vchAction" />
+            <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+            <ScalarProperty Name="vchType" ColumnName="vchType" />
+            <ScalarProperty Name="vchReason" ColumnName="vchReason" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="csuAuditTransSyncs">
+            <EntityTypeMapping TypeName="FinanceAuditSyncModel.csuAuditTransSync">
+              <MappingFragment StoreEntitySet="csuAuditTransSync">
+                <ScalarProperty Name="dtChangeDate" ColumnName="dtChangeDate" />
+                <ScalarProperty Name="chupdateBy" ColumnName="chupdateBy" />
+                <ScalarProperty Name="vchReason" ColumnName="vchReason" />
+                <ScalarProperty Name="vchSystem" ColumnName="vchSystem" />
+                <ScalarProperty Name="vchAction" ColumnName="vchAction" />
+                <ScalarProperty Name="documentId" ColumnName="documentId" />
+                <ScalarProperty Name="iAuditId" ColumnName="iAuditId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="auditEntities">
+        <EntityTypeShape EntityType="FinanceAuditSyncModel.csuAuditDebtorSync" Width="1.5" PointX="0.75" PointY="0.75" Height="2.085348307291667" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanceAuditSyncModel.csuAuditTransSync" Width="1.5" PointX="3.375" PointY="0.75" Height="2.0853483072916665" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

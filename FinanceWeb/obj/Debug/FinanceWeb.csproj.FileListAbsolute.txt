@@ -1,0 +1,13 @@
+D:\Projects\FinanceWebAdmin\FinanceWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\FinanceWeb.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\FinanceWeb.pdb
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\AppDomain.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\FinanceDataLayer.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\Microsoft.Web.Mvc.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\Newtonsoft.Json.Net35.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\AppDomain.pdb
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\FinanceDataLayer.pdb
+D:\Projects\FinanceWebAdmin\FinanceWeb\obj\Debug\FinanceWeb.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\obj\Debug\FinanceWeb.pdb
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\System.Web.Mvc.dll
+D:\Projects\FinanceWebAdmin\FinanceWeb\bin\System.Web.Mvc.xml
